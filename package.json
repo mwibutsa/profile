@@ -2,9 +2,11 @@
   "name": "portifolio",
   "version": "1.0.0",
   "description": "Mwibutsa Floribert personal career profile",
-  "main": "app.js",
+  "main": "./server/app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "babel-node -- ./server/app.js",
+    "dev": "nodemon --exec babel-node -- ./server/app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/mwibutsa/profile/issues"
   },
-  "homepage": "https://github.com/mwibutsa/profile#readme"
+  "homepage": "https://github.com/mwibutsa/profile#readme",
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^5.5.1"
+  }
 }
