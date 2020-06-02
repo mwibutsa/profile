@@ -1,0 +1,19 @@
+{
+  "name": "portifolio",
+  "version": "1.0.0",
+  "description": "Mwibutsa Floribert personal career profile",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwibutsa/profile.git"
+  },
+  "author": "Mwibutsa Floribert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwibutsa/profile/issues"
+  },
+  "homepage": "https://github.com/mwibutsa/profile#readme"
+}
