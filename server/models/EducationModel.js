@@ -5,7 +5,7 @@ const EducationModel = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    user: { type: DataTypes.INTEGER },
+    userId: { type: DataTypes.INTEGER },
     schoolName: { type: DataTypes.TEXT },
     courseTaken: {
       type: DataTypes.TEXT,
@@ -23,7 +23,8 @@ const EducationModel = (sequelize, DataTypes) => {
   });
 
   Education.associate = (models) => {
-    Education.belongsTo(models.user, { foreignKey: "user" });
+    Education.belongsTo(models.user, { foreignKey: "userId" });
   };
   return Education;
 };
+export default EducationModel;

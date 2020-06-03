@@ -1,6 +1,7 @@
 const JobModel = (sequelize, DataTypes) => {
-  Job = sequelize.define("job", {
+  const Job = sequelize.define("job", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    userId: { type: DataTypes.INTEGER },
     employer: { type: DataTypes.TEXT },
     jobTitle: { type: DataTypes.TEXT },
     jobDescription: { type: DataTypes.TEXT, allowNull: true },
@@ -13,8 +14,8 @@ const JobModel = (sequelize, DataTypes) => {
   });
 
   Job.associate = (models) => {
-    Job.belongsTo(models.User, {
-      foreignKey: "user",
+    Job.belongsTo(models.user, {
+      foreignKey: "userId",
     });
   };
   return Job;

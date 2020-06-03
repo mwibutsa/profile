@@ -1,17 +1,11 @@
-import { hashPassword, validatePassword } from "../helpers/helpers";
+import {
+  hashPassword,
+  validatePassword,
+  validateEmail,
+} from "../helpers/helpers";
 
-const passwordValidator = (obj) => {
-  if (!obj.validatePassword(obj.password)) {
-    throw new Error(
-      "Please provide a strong password with each of small letters, uppercase letters and numbers"
-    );
-    obj.password = hashPassword(password);
-  } else {
-  }
-};
-
-const emailValidator = (obj) => {
-  if (!this.email.match(/(^[a-zA-Z0-9_.])(@)(\w){2,}(\.)(\w){2,}/)) {
+const emailValidator = (email) => {
+  if (!validateEmail(email)) {
     throw new Error("Please use a valid email address.");
   }
 };
@@ -23,7 +17,7 @@ const UserModel = (sequelize, DataTypes) => {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement,
+        autoIncrement: true,
       },
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
@@ -31,9 +25,15 @@ const UserModel = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         unique: true,
         validate: {
-          validation: emailValidator(obj),
+          validation: emailValidator.bind(this),
         },
       },
+      profileImage: {
+        type: DataTypes.TEXT,
+        defaultValue:
+          "https://w7.pngwing.com/pngs/304/305/png-transparent-man-with-formal-suit-illustration-web-development-computer-icons-avatar-business-user-profile-child-face-web-design.png",
+      },
+
       professionalSummary: {
         type: DataTypes.TEXT,
         trim: true,
@@ -43,14 +43,28 @@ const UserModel = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         validate: {
-          validation: passwordValidator(this),
+          validation() {
+            if (!validatePassword(this.password)) {
+              throw new Error(
+                "Please provide a strong password with each of small letters, uppercase letters and numbers"
+              );
+            }
+            this.password = hashPassword(this.password);
+          },
         },
       },
     },
     {}
   );
 
-  User.createUser = () => {
+  User.createUser = (
+    firstName,
+    lastName,
+    email,
+    professionalSummary,
+    location,
+    title
+  ) => {
     User.create({
       firstName,
       lastName,
@@ -62,24 +76,22 @@ const UserModel = (sequelize, DataTypes) => {
   };
 
   User.associate = (models) => {
-    User.hasMany(models.workExperience, {
-      foreignKey: "user",
+    User.hasMany(models.project, {
+      foreignKey: "userId",
+      sourceKey: "id",
       onDelete: "CASCADE",
     });
 
-    User.hasMany(models.Project, {
-      foreignKey: "user",
+    User.hasMany(models.job, {
+      foreignKey: "userId",
+      sourceKey: "id",
       onDelete: "CASCADE",
     });
 
-    User.hasMany(models.Job, {
-      foreignKey: "user",
+    User.hasMany(models.education, {
+      foreignKey: "userId",
       onDelete: "CASCADE",
-    });
-
-    User.hasMany(models.Education, {
-      foreignKey: "user",
-      onDelete: "CASCADE",
+      sourceKey: "id",
     });
   };
 

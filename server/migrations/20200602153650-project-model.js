@@ -2,13 +2,13 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("project", {
+    queryInterface.createTable("projects", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      user: { type: Sequelize.INTEGER },
+      userId: { type: Sequelize.INTEGER },
       projectUrl: {
         type: Sequelize.TEXT,
       },
@@ -30,5 +30,5 @@ module.exports = {
     }),
 
   down: (queryInterface, Sequelize) =>
-    Promise.all([queryInterface.dropTable("project")]),
+    Promise.all([queryInterface.dropTable("projects")]),
 };

@@ -2,8 +2,9 @@
   "development": {
     "username": "floribert",
     "password": "Password@1",
-    "database": "postgres",
+    "database": "portifolio",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   }
 }

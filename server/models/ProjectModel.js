@@ -1,11 +1,11 @@
 const ProjectModel = (sequelize, DataTypes) => {
-  const Project = sequelize.define("projects", {
+  const Project = sequelize.define("project", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    user: { type: DataTypes.INTEGER },
+    userId: { type: DataTypes.INTEGER },
     projectUrl: {
       type: DataTypes.TEXT,
     },
@@ -25,17 +25,15 @@ const ProjectModel = (sequelize, DataTypes) => {
   });
 
   Project.associate = (models) => {
-    Project.hasMany(models.Stack, {
-      foreignKey: "project",
+    Project.belongsTo(models.user, { foreignKey: "userId" });
+    Project.hasMany(models.projectStack, {
+      foreignKey: "projectId",
       onDelete: "CASCADE",
+      sourceKey: "id",
     });
-
-    Project.belongsTo(models.User, { foreignKey: "user" });
   };
-
-  Project.addProject = () => {};
 
   return Project;
 };
 
-export default Project;
+export default ProjectModel;

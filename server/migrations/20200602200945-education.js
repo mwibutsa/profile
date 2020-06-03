@@ -2,26 +2,31 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("job", {
+    queryInterface.createTable("education", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
       userId: { type: Sequelize.INTEGER },
-      employer: { type: Sequelize.TEXT },
-      jobTitle: { type: Sequelize.TEXT },
-      jobDescription: { type: Sequelize.TEXT, allowNull: true },
+      schoolName: { type: Sequelize.TEXT },
+      courseTaken: {
+        type: Sequelize.TEXT,
+      },
       startDate: { type: Sequelize.DATE },
-      endDate: { type: Sequelize.DATE, allowNull: true },
-      createdAt: { type: Sequelize.DATE },
-      updatedAt: { type: Sequelize.DATE },
+      endDate: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
       inProgress: {
         type: Sequelize.BOOLEAN,
+        allowNull: true,
         defaultValue: false,
       },
+      createdAt: { type: Sequelize.DATE },
+      updatedAt: { type: Sequelize.DATE },
     }),
 
   down: (queryInterface, Sequelize) =>
-    Promise.all([queryInterface.dropTable("job")]),
+    Promise.all([queryInterface.dropTable("education")]),
 };
