@@ -1,4 +1,6 @@
-import { decodeToken } from "../helpers/helpers";
+import {
+  decodeToken
+} from "../helpers/helpers";
 
 export const isLoggedIn = (req, res, next) => {
   try {

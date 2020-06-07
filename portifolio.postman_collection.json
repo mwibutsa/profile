@@ -1,0 +1,611 @@
+{
+	"info": {
+		"_postman_id": "6360408f-03ee-4e02-bc8f-d67bc6f02787",
+		"name": "portifolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "get projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"projectUrl\":\"http://sweetlifehotel.herokuapp.com/\",\n\t\"projectVideoUrl\":\"https://www.youtube.com/watch?v=LGh9yyoiR9s\",\n\t\"thumbnailImageUrl\":\"http://sweetlifehotel.herokuapp.com/static/media/swimmingpool.f0d8f9c4.png\",\n\t\"startDate\":\"04/01/2020\",\n\t\"inProgress\":true,\n\t\"projectOwner\":\"Side project\",\n\t\"stacks\":[\"Python\",\"Django\",\"Javascript\",\"React\",\"Bootstrap\"]\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projects/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						},
+						"description": "add new user project"
+					},
+					"response": []
+				},
+				{
+					"name": "get single project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a project",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/projects/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"endDate\": \"06/03/2020\",\n    \"inProgress\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projects/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "work experience",
+			"item": [
+				{
+					"name": "get work experience",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/work-experience",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add work experience",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employer\":\"Andela\",\n\t\"jobTitle\":\"Associate software engineer\",\n\t\"jobDescription\":\"I was a software engineer at Andela, I mostly made use of Javascript(Node, React) and Python (Django), During development. I have some DevOps Skills like Docker, Linux, and Github and I have used both relational database management systems like MySQL, PostgreSQL and non-relational like MongoDB\",\n\t\"startDate\":\"02/18/2019\",\n\t\"endDate\":\"04/03/2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/work-experience",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update work experience",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"employer\":\"Self employed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/work-experience/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"work-experience",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete work experience",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-tokem",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/work-experience/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"work-experience",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "skills",
+			"item": [
+				{
+					"name": "Get skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add skills",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update skills",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"skillName\":\"Fake 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/skills/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete skills",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/skills/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "education",
+			"item": [
+				{
+					"name": "get education background",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/education",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add educational background",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"schoolName\":\"Muhororo Secondary School\",\n\t\"courseTaken\":\"Mathematics Economics and Computer science\",\n\t\"startDate\":\"02/04/2013\",\n\t\"endDate\":\"10/01/2015\",\n\t\"qualification\":\"Highschool Degree\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/education",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update educational background",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"schoolName\":\"Fake school name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/education/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"education",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete educational background",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/education/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"education",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\":\"Mwibutsa\",\n\t\"lastName\":\"Floribert\",\n\t\"email\":\"mwibutsa@gmail.com\",\n\t\"profileImage\":\"https://cdn.dribbble.com/users/504585/screenshots/2006389/terrible_designer_avatar-01.jpg\",\n\t\"professionalSummary\":\"Hello, I’m a full-stack software engineer, I have experience in building web and mobile applications using Python Django, Nodejs, React, React-native, and UI/UX design.In addition to my experience, I have practical knowledge about DevOps, most specifically deployment, containerization with Docker, unit test, integration test, and using popular tools to connect development teams.In fact, I can be part of any technical department including but not limited to Backend, Frontend, UI/UX Design, and DevOps. I am a natural good team player with both remote and onsite experience. \",\n\t\"location\":\"Kigali,Rwanda\",\n\t\"password\":\"Umusatsi@1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						},
+						"description": "get specific user profile"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"mwibutsa@gmail.com\",\n\t\"password\":\"Umusatsi@1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Software Engineer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f4f839b0-f19b-4c4a-a733-e2f03e253599",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "03e1763a-d0f7-45ea-a8fa-9c71090e25b8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "360417bc-9741-48cb-a71a-c264c3e9c5af",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkxNTMxMzQyfQ.Oo3OZWkPTt3AhcOdJm2TVC3N9fScm-YDxk5iscjvCVQ",
+			"type": "string"
+		},
+		{
+			"id": "c29e2527-3805-44fd-880a-5d2397069597",
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,13 +1,22 @@
 import model from "../models";
 
-const { project: ProjectModel, projectStack: ProjectStacksModel } = model;
+const {
+  project: ProjectModel,
+  projectStack: ProjectStacksModel
+} = model;
 
 export default class UserProject {
   getProjectById = async (req, res) => {
-    const { id } = req.params;
+    const {
+      id
+    } = req.params;
     const project = await ProjectModel.findOne({
-      where: { id },
-      include: { model: ProjectStacksModel },
+      where: {
+        id,
+      },
+      include: {
+        model: ProjectStacksModel,
+      },
     });
 
     if (project) {
@@ -26,9 +35,13 @@ export default class UserProject {
     });
 
     if (projects.length) {
-      return res.status(200).json({ projects });
+      return res.status(200).json({
+        projects,
+      });
     }
-    return res.status(404).json({ message: "No projects were found." });
+    return res.status(404).json({
+      message: "No projects were found.",
+    });
   };
 
   addProject = async (req, res) => {
@@ -36,47 +49,82 @@ export default class UserProject {
 
     delete req.body.stacks;
     const stacks = [];
-    const project = await ProjectModel.create(req.body, { returning: true });
+    const project = await ProjectModel.create({
+      ...req.body,
+      userId: req.user,
+    }, {
+      returning: true,
+    });
 
-    for (let stack of projectStacks) {
-      const projectStack = await ProjectStacksModel.create(
-        { stackName: stack, projectId: project.id },
-        {
+    if (projectStacks && projectStacks.length) {
+      for (let stack of projectStacks) {
+        const projectStack = await ProjectStacksModel.create({
+          stackName: stack,
+          projectId: project.id,
+        }, {
           returning: true,
-        }
-      );
+        });
 
-      stacks.push(projectStack);
+        stacks.push(projectStack);
+      }
     }
 
-    const response = { ...project.dataValues, stacks };
+    const response = {
+      ...project.dataValues,
+      stacks,
+    };
 
     return res.status(201).json({
-      response,
+      project: {
+        ...response,
+      },
       message: "Project was added successfully",
     });
   };
 
   updateProject = async (req, res) => {
-    const { id } = req.params;
-    await ProjectModel.update(req.body, { where: { id } });
-    const project = await ProjectModel.findOne({ where: { id } });
+    const {
+      id
+    } = req.params;
+    await ProjectModel.update(req.body, {
+      where: {
+        id,
+      },
+    });
+    const project = await ProjectModel.findOne({
+      where: {
+        id,
+      },
+    });
 
-    return res
-      .status(200)
-      .json({ project, message: "Project was successfully updated." });
+    if (project) {
+      return res.status(200).json({
+        project,
+        message: "Project was successfully updated.",
+      });
+    }
+
+    return res.status(404).json({
+      error: "The project you are trying to update does not exist.",
+    });
   };
   deleteProject = async (req, res) => {
-    const { id } = req.params;
-    const project = await ProjectModel.findOne({ where: { id } });
+    const {
+      id
+    } = req.params;
+    const project = await ProjectModel.findOne({
+      where: {
+        id,
+      },
+    });
     if (project) {
       await project.destroy();
-      return res
-        .status(200)
-        .json({ message: "Project was successfully deleted." });
+      return res.status(200).json({
+        message: "Project was successfully deleted.",
+      });
     }
-    return res
-      .status(404)
-      .json({ error: "The project you are trying to delete does not exist." });
+    return res.status(404).json({
+      error: "The project you are trying to delete does not exist.",
+    });
   };
 }

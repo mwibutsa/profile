@@ -5,12 +5,18 @@ const EducationModel = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: { type: DataTypes.INTEGER },
-    schoolName: { type: DataTypes.TEXT },
+    userId: {
+      type: DataTypes.INTEGER
+    },
+    schoolName: {
+      type: DataTypes.TEXT
+    },
     courseTaken: {
       type: DataTypes.TEXT,
     },
-    startDate: { type: DataTypes.DATE },
+    startDate: {
+      type: DataTypes.DATE
+    },
     endDate: {
       type: DataTypes.DATE,
       allowNull: true,
@@ -23,7 +29,9 @@ const EducationModel = (sequelize, DataTypes) => {
   });
 
   Education.associate = (models) => {
-    Education.belongsTo(models.user, { foreignKey: "userId" });
+    Education.belongsTo(models.user, {
+      foreignKey: "userId"
+    });
   };
   return Education;
 };

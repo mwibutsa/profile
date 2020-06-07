@@ -1,0 +1,37 @@
+:root {
+  --color-bg-white: #e5e5e5;
+  --text-color: #787878;
+  --color-bg-blue: #1b6ca8;
+  --color-dark-blue: #0c3b50;
+  --center-with-margin: 0 auto;
+  --section-border-radius: 0.3rem;
+}
+
+.PageLayout {
+  display: flex;
+  width: 80%;
+  margin: var(--center-with-margin);
+  color: var(--text-color);
+}
+
+.LeftSide {
+  background-color: var(--color-bg-white);
+  margin-right: 1rem;
+  width: 30%;
+  padding: 1rem;
+  border-radius: var(--section-border-radius);
+}
+
+.PageLayoutContainer {
+  background: linear-gradient(var(--color-bg-blue), var(--color-dark-blue));
+  min-height: 100vh;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.RightSide {
+  width: 70%;
+  background: var(--color-bg-white);
+  padding: 1rem;
+  border-radius: var(--section-border-radius);
+}

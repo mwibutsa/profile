@@ -12,8 +12,7 @@ const emailValidator = (email) => {
 
 const UserModel = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "user",
-    {
+    "user", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -30,8 +29,7 @@ const UserModel = (sequelize, DataTypes) => {
       },
       profileImage: {
         type: DataTypes.TEXT,
-        defaultValue:
-          "https://w7.pngwing.com/pngs/304/305/png-transparent-man-with-formal-suit-illustration-web-development-computer-icons-avatar-business-user-profile-child-face-web-design.png",
+        defaultValue: "https://w7.pngwing.com/pngs/304/305/png-transparent-man-with-formal-suit-illustration-web-development-computer-icons-avatar-business-user-profile-child-face-web-design.png",
       },
 
       professionalSummary: {
@@ -53,8 +51,7 @@ const UserModel = (sequelize, DataTypes) => {
           },
         },
       },
-    },
-    {}
+    }, {}
   );
 
   User.createUser = (
@@ -89,6 +86,13 @@ const UserModel = (sequelize, DataTypes) => {
     });
 
     User.hasMany(models.education, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+      sourceKey: "id",
+    });
+
+
+    User.hasMany(models.skills, {
       foreignKey: "userId",
       onDelete: "CASCADE",
       sourceKey: "id",

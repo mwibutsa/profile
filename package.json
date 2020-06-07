@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "babel-node -- ./server/app.js",
-    "dev": "nodemon --exec babel-node -- ./server/app.js"
+    "dev": "nodemon --exec babel-node -- ./server/app.js",
+    "start:ui": "cd frontend && npm start"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
   "bugs": {
     "url": "https://github.com/mwibutsa/profile/issues"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "homepage": "https://github.com/mwibutsa/profile#readme",
   "dependencies": {
     "@babel/core": "^7.10.2",
@@ -25,6 +29,7 @@
     "@babel/preset-env": "^7.10.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
@@ -32,14 +37,15 @@
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.11",
+    "sequelize-cli": "^5.5.1",
     "validator": "^13.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "nodemon": "^2.0.4",
-    "sequelize-cli": "^5.5.1"
+    "nodemon": "^2.0.4"
   }
 }
