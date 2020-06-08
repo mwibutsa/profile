@@ -9,7 +9,7 @@ import {
 const getUserProfileBegin = () => ({ type: GET_USER_PROFILE_BEGIN });
 const getUserProfileDone = (data) => ({
   type: GET_USER_PROFILE,
-  payload: { data },
+  payload: { data: data.user },
 });
 
 const getUserProfileFailed = (error) => ({

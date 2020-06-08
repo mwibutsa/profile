@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("projects", {
+    queryInterface.createTable('projects', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -30,5 +30,5 @@ module.exports = {
     }),
 
   down: (queryInterface, Sequelize) =>
-    Promise.all([queryInterface.dropTable("projects")]),
+    Promise.all([queryInterface.dropTable('projects')]),
 };

@@ -4,7 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 const MenuItem = (props) => {
   return (
-      <NavLink to={props.path || '#'} className={classes.MenuItem} activeClassName={classes.ActiveMenu}>{props.children}</NavLink>
+    <NavLink
+      to={props.path}
+      className={classes.MenuItem}
+      activeClassName={classes.ActiveMenu}
+    >
+      {props.children}
+    </NavLink>
   );
 };
 

@@ -1,13 +1,12 @@
 .ImageAvatar {
   margin: var(--center-with-margin);
-  width: 100%;
+  width: 70%;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .ImageAvatar img {
   width: 100%;
-  height: 100%;
 }
 
 .UserDetail {
@@ -17,4 +16,32 @@
 .UserTitle {
   text-transform: uppercase;
   font-size: 1rem;
+}
+
+.DetailInfo {
+  font-size: 1.6rem;
+  width: 100%;
+  text-align: justify;
+  padding: 0.5rem 3rem;
+  margin: 1rem 0;
+}
+.DetailInfo span {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .UserDetail {
+    display: flex;
+    width: 100%;
+  }
+
+  .ImageAvatar {
+    width: 30%;
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .UserDetail {
+    flex-direction: column;
+  }
 }

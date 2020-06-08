@@ -1,7 +1,7 @@
 :root {
-  --color-bg-white: #e5e5e5;
+  --color-bg-white: #e8ecff;
   --text-color: #787878;
-  --color-bg-blue: #1b6ca8;
+  --color-bg-blue: #0960bd;
   --color-dark-blue: #0c3b50;
   --center-with-margin: 0 auto;
   --section-border-radius: 0.3rem;
@@ -12,12 +12,13 @@
   width: 80%;
   margin: var(--center-with-margin);
   color: var(--text-color);
+  flex-wrap: wrap;
 }
 
 .LeftSide {
   background-color: var(--color-bg-white);
   margin-right: 1rem;
-  width: 30%;
+  width: 29%;
   padding: 1rem;
   border-radius: var(--section-border-radius);
 }
@@ -25,13 +26,25 @@
 .PageLayoutContainer {
   background: linear-gradient(var(--color-bg-blue), var(--color-dark-blue));
   min-height: 100vh;
-  position: relative;
   padding-top: 3rem;
 }
 
 .RightSide {
   width: 70%;
   background: var(--color-bg-white);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: var(--section-border-radius);
+}
+
+@media screen and (max-width: 1300px) {
+  .LeftSide {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .RightSide {
+    width: 100%;
+  }
+  .PageLayout {
+    width: 90%;
+  }
 }

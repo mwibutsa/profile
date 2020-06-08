@@ -2,8 +2,11 @@
   width: 100%;
 }
 .Text {
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-family: 'Montaga', sans-serif;
-  line-height: 1.6rem;
-  letter-spacing: 0.02rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.03rem;
+  background-color: var(--color-transparent);
+  padding: 1rem;
+  text-align: justify;
 }

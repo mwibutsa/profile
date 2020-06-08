@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseUrl = 'http://mwibutsa.herokuapp.com';
+const baseURL = 'http://mwibutsa.herokuapp.com';
 
 const customAxios = axios.create({
-  baseUrl,
+  baseURL,
 });
 
 export default customAxios;

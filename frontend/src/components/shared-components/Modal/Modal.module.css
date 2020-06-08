@@ -1,0 +1,31 @@
+.Modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.438);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ModalContainer {
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+  animation: modelSlideIn 0.3s eas-in-out;
+}
+@keyframes videoModelSlideIn {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+
+  50% {
+    top: -50%;
+    opacity: 0.8;
+  }
+  100% {
+    top: 0%;
+    opacity: 1;
+  }
+}
