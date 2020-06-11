@@ -1,8 +1,8 @@
-import React from 'react';
-import classes from './AboutPage.module.css';
-import Heading from '../../shared-components/Heading/Heading';
-import PageSpinner from '../../shared-components/PageSpinner/PageSpinner';
-import Skills from '../../Skills/Skills';
+import React from "react";
+import classes from "./AboutPage.module.css";
+import Heading from "../../shared-components/Heading/Heading";
+import PageSpinner from "../../shared-components/PageSpinner/PageSpinner";
+import Skills from "../../Skills/Skills";
 
 const AboutPage = (props) => {
   let pageContent = <PageSpinner />;

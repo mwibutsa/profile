@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import UserDetail from '../../shared-components/UserDetail/UserDetail';
-import Navigation from '../../shared-components/Navigation/Navigation';
-import classes from './PageLayout.module.css';
-import { getUserProfile } from '../../../redux/actions/user-action';
-import { connect } from 'react-redux';
-import PageSpinner from '../../shared-components/PageSpinner/PageSpinner';
-import AboutPage from '../AboutPage/AboutPage';
-import ProjectsPage from '../ProjectsPage/ProjectsPage';
-import { Switch, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import UserDetail from "../../shared-components/UserDetail/UserDetail";
+import Navigation from "../../shared-components/Navigation/Navigation";
+import classes from "./PageLayout.module.css";
+import { getUserProfile } from "../../../redux/actions/user-action";
+import { connect } from "react-redux";
+import PageSpinner from "../../shared-components/PageSpinner/PageSpinner";
+import AboutPage from "../AboutPage/AboutPage";
+import ProjectsPage from "../ProjectsPage/ProjectsPage";
+import { Switch, Route } from "react-router-dom";
+import WorkExperiencePage from "../WorkExperience/WorkExperience";
 
 const PageLayout = (props) => {
   const { getProfile } = props;
@@ -43,6 +44,10 @@ const PageLayout = (props) => {
                     path="/"
                     render={(props) => <AboutPage {...props} user={user} />}
                     exact
+                  />
+                  <Route
+                    path="/work-experience"
+                    component={WorkExperiencePage}
                   />
                 </React.Fragment>
               )}

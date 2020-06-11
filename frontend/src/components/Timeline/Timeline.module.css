@@ -1,0 +1,23 @@
+.Timeline {
+  position: relative;
+  padding: 2rem;
+  margin: var(--center-with-margin);
+  display: flex;
+  flex-direction: column;
+}
+
+.Timeline::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0.6rem;
+  background-color: #544d7e;
+  left: calc(50% - 0.3rem);
+  top: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .Timeline::after {
+    left: 0;
+  }
+}

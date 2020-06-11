@@ -34,6 +34,8 @@
   background: var(--color-bg-white);
   padding: 2rem;
   border-radius: var(--section-border-radius);
+  height: 93vh;
+  overflow: auto;
 }
 
 @media screen and (max-width: 1300px) {
@@ -47,4 +49,12 @@
   .PageLayout {
     width: 90%;
   }
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
+  border-radius: 1rem;
 }

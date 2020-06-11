@@ -2,4 +2,8 @@
   width: 100%;
   border-bottom: 2px solid rgba(206, 205, 205, 0.301);
   text-align: center;
+  position: sticky;
+  z-index: 1000;
+  top: -2rem;
+  background: inherit;
 }

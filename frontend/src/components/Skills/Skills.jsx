@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import SkillTag from '../shared-components/SkillTag/SkillTag';
-import { connect } from 'react-redux';
-import { getUserSkills } from '../../redux/actions/skills-action';
-import PageSpinner from '../shared-components/PageSpinner/PageSpinner';
-import classes from './Skills.module.css';
+import React, { useEffect } from "react";
+import SkillTag from "../shared-components/SkillTag/SkillTag";
+import { connect } from "react-redux";
+import { getUserSkills } from "../../redux/actions/skills-action";
+import PageSpinner from "../shared-components/PageSpinner/PageSpinner";
+import classes from "./Skills.module.css";
 
 const Skills = (props) => {
   const { getSkills } = props;
@@ -15,7 +15,7 @@ const Skills = (props) => {
   let content = <PageSpinner />;
   if (!props.loading) {
     content = props.skills.map((skill) => (
-      <SkillTag>{skill.skillName}</SkillTag>
+      <SkillTag key={skill.id}>{skill.skillName}</SkillTag>
     ));
   }
 

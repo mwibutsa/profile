@@ -1,6 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
+import dotenv from "dotenv";
 
-const baseURL = 'http://mwibutsa.herokuapp.com';
+dotenv.config();
+
+const baseURL = "api";
 
 const customAxios = axios.create({
   baseURL,

@@ -1,0 +1,115 @@
+.TimelineItem {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  padding-right: 3rem;
+  position: relative;
+}
+
+.TimelineItemContent {
+  background-color: aliceblue;
+  width: 100%;
+  min-width: 10rem;
+  min-height: 5rem;
+  border-radius: 0.3rem;
+  position: relative;
+  z-index: 1;
+  padding: 1rem 2rem;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: justify;
+}
+
+.TimelineItemContent::after {
+  content: "";
+  background-color: aliceblue;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: calc(100% - 1rem);
+  transform: rotate(45deg);
+  top: calc(50% - 0.75rem);
+}
+
+.TimelineItemContent .Circle {
+  position: absolute;
+  background-color: purple;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  left: calc(100% + 2rem);
+  top: calc(50% - 1rem);
+  border: 0.3rem solid orangered;
+}
+
+.TimelineItemContent .TitleContainer {
+  align-self: flex-start;
+}
+.TimelineItemContent .Title {
+  align-self: flex-start;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+.JobTitle {
+  font-size: 1.2rem;
+  color: rgb(156, 181, 212);
+  text-transform: capitalize;
+}
+
+.TimePeriod {
+  font-size: 1rem;
+  color: rgb(184, 184, 184);
+}
+
+.Description {
+  color: #aaa;
+}
+p {
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .TimelineItem:nth-child(even) .TimelineItemContent::after {
+    left: -1rem;
+    right: auto;
+  }
+
+  .TimelineItem:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 3rem;
+    justify-content: flex-start;
+  }
+
+  .TimelineItem:nth-child(even) .TimelineItemContent .Circle {
+    right: auto;
+    left: -4rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .TimelineItem {
+    width: 100%;
+  }
+  .TimelineItemContent {
+    width: 100%;
+  }
+  .TimelineItem .TimelineItemContent::after {
+    left: -1rem;
+    right: auto;
+  }
+
+  .TimelineItem .TimelineItemContent .Circle {
+    right: auto;
+    left: -2.8rem;
+  }
+}

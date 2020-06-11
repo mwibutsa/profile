@@ -9,6 +9,7 @@ const ProjectVideo = (props) => {
         src={`${props.project.projectVideoUrl}`}
         allow="accelerometer; autoplay; encrypted-media; gyroscope;"
         allowFullscreen
+        title={props.project.projectVideoUrl}
       ></iframe>
     </div>
   );
